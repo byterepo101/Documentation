@@ -1,0 +1,198 @@
+How to Understand a School’s Network Layout
+Think of a school network as a small campus network: multiple buildings or blocks, lots of rooms, and a central point where everything converges. The trick is to break it down into layers and follow the physical and logical flow.
+
+🧩 1. Start With the Core: The Server/Comms Room
+Every school has at least one main communications room (sometimes called the server room, network room, or MDF).
+Inside you’ll usually find:
+- Core switch(es)
+- Firewall
+- Router (often provided by the ISP)
+- Patch panels
+- UPS (battery backup)
+- Servers (AD, file servers, print servers, etc.)
+This is the “brain” of the school network.
+
+🧱 2. Identify the IDFs (Intermediate Distribution Frames)
+Large schools have multiple buildings or floors. Each area will have a small cabinet with:
+- A switch
+- Patch panels
+- Fibre uplink back to the core
+These are called IDFs or satellite cabinets.
+Understanding these is key because they show how different parts of the school connect.
+
+🔌 3. Follow the Physical Path of a Single Port
+You already understand the basic chain:
+Wall port → Patch panel → Switch → Network
+In a school, the chain becomes:
+Classroom wall port → Local cabinet patch panel → Local switch → Fibre uplink → Core switch → Firewall → Internet
+Once you see this pattern, the whole network becomes easier to map.
+
+Look for Documentation (or Create It)
+Most schools should have:
+- A network diagram
+- Cabinet layouts
+- Switch port maps
+- VLAN documentation
+But many don’t, or it’s outdated. If you’re trying to understand the layout, ask for:
+- Network topology diagrams
+- Switch configs
+- Cabinet photos
+- Floor plans with data points
+If nothing exists, you can build your own as you explore.
+
+🧪 5. Use Tools to Trace Connections
+A few simple tools make the job easier:
+- Cable tester / toner – to trace wall ports
+- Switch CLI – show mac address-table tells you where a device is connected
+- Labeling – good schools label everything; bad ones… don’t
+If you can identify where one device plugs in, you can map the rest.
+
+Understand the Logical Layout (VLANs)
+Schools almost always use VLANs to separate:
+- Admin staff
+- Students
+- Teachers
+- VoIP phones
+- CCTV
+- Wi‑Fi networks
+- Servers
+Once you understand the VLAN structure, the network stops feeling like a maze.
+
+🛰️ 7. Walk the Site
+Nothing beats physically walking around:
+- Find every cabinet
+- Note what’s inside
+- Check uplinks
+- Look for fibre runs
+- Identify wireless access points
+You’ll start to see the pattern of how the school is wired.
+
+A Simple Mental Model
+Here’s the easiest way to picture a school network:
+                [Internet]
+                    |
+                [Firewall]
+                    |
+               [Core Switch]
+                    |
+        ----------------------------
+        |            |            |
+     Fibre         Fibre        Fibre
+        |            |            |
+   [Cabinet A]   [Cabinet B]  [Cabinet C]
+        |            |            |
+   Classrooms     Offices      Labs
+
+
+Once you see this “hub and spokes” model, everything else clicks into place.
+
+Step‑by‑Step Guide to Documenting a School Network
+🧭 1. Start With a High‑Level Overview
+Before touching any cables, capture the “big picture”:
+- Where is the main server/comms room?
+- How many cabinets (IDFs) exist across the site?
+- How many buildings/floors are involved?
+- What equipment types are used (Cisco, HP, Unifi, Aruba, etc.)?
+This gives you a mental map to build on.
+
+🗄️ 2. Photograph and Label Every Cabinet
+Go cabinet by cabinet:
+- Take clear photos of:
+- Patch panels
+- Switches
+- Fibre modules
+- UPS units
+- Labels (if any)
+- Note cabinet name (e.g., Block A – Ground Floor Cabinet)
+This becomes your reference library.
+
+
+3. Map the Physical Connections
+For each cabinet:
+- Identify uplinks (usually fibre)
+- Identify downlinks (to classrooms/offices)
+- Note switch models and port counts
+- Record patch panel numbering
+A simple table works well:
+|  |  |  |  |  | 
+|  |  |  |  |  | 
+
+
+
+🧪 4. Trace Ports and Endpoints
+Pick a few wall ports and trace them:
+- Wall port → patch panel port
+- Patch panel port → switch port
+- Switch port → VLAN assignment
+- VLAN → network purpose (e.g., Student Wi‑Fi)
+Tools that help:
+- Switch CLI (show mac address-table)
+- Toner/probe
+- Laptop + DHCP info
+This is where the network starts to “make sense”.
+
+Document the Logical Network (VLANs)
+Schools almost always use VLANs. Create a VLAN table:
+|  |  |  |  | 
+|  |  |  |  | 
+|  |  |  |  | 
+|  |  |  |  | 
+|  |  |  |  | 
+
+
+You can extract this from switch configs or firewall rules.
+
+🔥 6. Document the Firewall and Internet Setup
+Record:
+- ISP details
+- Public IPs
+- Firewall model
+- Key rules (high‑level only)
+- VPN setup
+- Web filtering (common in schools)
+This is the “edge” of the network.
+
+📡 7. Map Wireless Access Point
+Schools rely heavily on Wi‑Fi. Document:
+- AP locations
+- AP names
+- Controller (Cloud or on‑prem)
+- SSIDs and VLAN mappings
+A floor plan with AP icons is extremely helpful.
+
+🧱 8. Create a Topology Diagram
+Once you understand the structure, draw it.
+A typical school diagram includes:
+- Core switch
+- Firewall
+- Internet
+- Fibre links to each cabinet
+- Switches in each cabinet
+- VLANs
+- Servers
+- Wi‑Fi controller
+You can use tools like:
+- draw.io
+- Lucidchart
+- Visio
+- NetBox (if you want to go pro)
+
+📝 9. Create a Cabinet‑by‑Cabinet Inventory
+For each cabinet:
+- Switch model + serial
+- Patch panel numbers
+- Uplink ports
+- Number of active ports
+- Connected devices (APs, CCTV, printers)
+This becomes your “master reference”.
+
+🧹 10. Clean Up and Standardise (Optional but Powerful)
+Once documented, you can improve:
+- Label patch panels
+- Label switch ports
+- Rename switches/APs logically
+- Standardise VLAN naming
+- Update diagrams regularly
+This makes future troubleshooting painless.
+
+
