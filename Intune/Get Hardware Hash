@@ -1,0 +1,8 @@
+# Get Hardware Hash from a device during OOBE
+** Execute the below steps during OOBE to get Hardware Hash
+At the OOBE screen, press SHIFT + F10 to open a command prompt.
+Type powershell.exe and press Enter to start PowerShell.
+Run the following commands to install and export the script:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Install-Script -Name Get-WindowsAutopilotInfo
+Get-WindowsAutopilotInfo.ps1 -OutputFile C:\HWID.csv
