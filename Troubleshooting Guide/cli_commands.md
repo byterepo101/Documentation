@@ -15,3 +15,4 @@
 |getmac      |View MAC addresses on your system |
 |net use       |Map a network drive or shared folder |
 |net share       |View or manage shared folders |
+|wpeutil reboot       |WinRE Specific Restart Command |
