@@ -3,4 +3,7 @@
 - If it is home version, it can't be enrolled.  
 - Upgrade it to Pro and then change product key to make it as Edu. Installation can be done using the media creation tool from microsoft site. It will continue to install Home version as the previous installation is Home. To resolve this a text file namd PID.txt must be placed in the sources folder of the USB installer PID.txt should have the contents [PID] Value=VK7JG-NPHTM-C97JM-9MPGT-3V66T. This will ensure that Win 11 Pro to be installed. The key should then be updated to make it Edu version. Commands related to that are : slmgr.vbs /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX and then slmgr.vbs /ato
 Once winver is updated to Edu, it will get picked up by Intune Auto Enrollment.
-### 2: Check the windows version of the device
+### 2: Check Profile Status in the Intune Portal
+- Open the Microsoft Intune Admin Center.Go to Devices > Windows > Windows enrollment > Devices (under Autopilot).Locate your device's serial number. Look closely at the Profile Status column.  If it says Not Assigned or Updating, click the Sync button at the top. Wait until it explicitly changes to Assigned before proceeding on the laptop.
+- ### 3: Verify Your Internet Connection in OOBE
+- If the device has no network access, it cannot contact Microsoft to learn that it belongs to an organization. Press Shift + F10 on the laptop to open the Command Prompt. Type ping 8.8.8.8 and hit Enter.  If the ping fails or says "General failure", click the back arrow on the screen to return to the network selection menu and reconnect to Wi-Fi or plug in an Ethernet cable. If ping 8.8.8.8 still fails, try Release and Renew IP Lease (ipconfig /release and ipconfig /renew)
