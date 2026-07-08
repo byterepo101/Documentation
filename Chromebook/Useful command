@@ -3,4 +3,6 @@
  
 | Command | Description |
 |---------|-------------|
-|Alt + V |Serial number, OS version, Asset ID and serial number will be displayed  |
+|Alt + V |Serial number, OS version, Asset ID and serial number will be displayed if the user is not logged into the system |
+|Open a new Google Chrome browser, Type chrome://system directly into the URL address bar and press Enter |Serial number can be obtained by pressing Ctrl + F to open a search bar on your screen, then type in vpd_2.0 + enter if the user is logged into the system |
+|Open a new Google Chrome browser, Type chrome://system directly into the URL address bar and press Enter |Look for hardware_class to find Chromebook model |
