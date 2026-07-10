@@ -18,3 +18,4 @@
 |wpeutil reboot       |WinRE Specific Restart Command |
 |shutdown /s /t 0       |Shut down a Windows computer via Command Prompt after 0 seconds |
 |shutdown /r /t 0       |Restart a Windows computer via Command Prompt after 0 seconds |
+|oobe\bypassnro       |Restart a Windows computer via Command Prompt after 0 seconds |
